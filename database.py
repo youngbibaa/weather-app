@@ -1,5 +1,6 @@
 import sqlite3
 import hashlib
+import requests
 
 
 def log_in(password) -> str:
@@ -56,3 +57,22 @@ def select(
     cursor.close()
     con.close()
     return res
+
+
+def find_coordinates(url: str, lon: float, lat: float, api_key: str) -> dict:
+    params = {
+        "lat": lat,
+        "lon": lon,
+        "appid": api_key,
+    }
+    response = requests.get(url=url, params=params)
+    return response.json()
+
+
+def find_city(url: str, q: str, api_key: str) -> dict:
+    params = {
+        "q": q,
+        "appid": api_key,
+    }
+    response = requests.get(url=url, params=params)
+    return response.json()
