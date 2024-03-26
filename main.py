@@ -34,7 +34,7 @@ while True:
                 print("2. Поиск погоды по координатам")
                 print("3. Вывод истории поиска пользователя")
                 print("4. Выйти")
-                action = 'int(input("Выберите действие: "))'
+                action = int(input("Выберите действие: "))
                 API_URL = "https://api.openweathermap.org/data/2.5/weather"
                 API_KEY = "1e1a8269c08d2807448ce0a3d324e530"
                 if action == 1:
